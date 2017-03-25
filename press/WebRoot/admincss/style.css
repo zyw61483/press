@@ -1,0 +1,235 @@
+/* 整个页面的样式 注padding ***左*/
+BODY {
+	margin: 0px;
+	bottommargin: 0px;
+	SCROLLBAR: auto;
+}
+UL {
+ PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+TD,DIV,form,OPTION,TD,BR,TABLE{FONT-FAMILY:"宋体,sans-serif";FONT-SIZE:12px;}
+P{margin:5px;FONT-FAMILY:"宋体,sans-serif";FONT-SIZE:14px;}
+/* 页面内基本HTML元素的样式 */
+A:link {	COLOR: #3C3C3C;	LINE-HEIGHT: 12px;	TEXT-DECORATION: underline}
+A:visited {	COLOR: #3C3C3C;	LINE-HEIGHT: 12px;	TEXT-DECORATION: underline}
+A:active {	COLOR: #3C3C3C;	LINE-HEIGHT: 12px;	TEXT-DECORATION: underline}
+A:hover {	COLOR: #0066FF;	LINE-HEIGHT: 12px;	TEXT-DECORATION: underline}
+/* 特殊超级链接的样式 */
+.menu:link { COLOR: #034D72; FONT-SIZE:12px;	LINE-HEIGHT: 14px;	TEXT-DECORATION: none;font-weight: bold;}
+.menu:visited {COLOR: #034D72; FONT-SIZE:12px;	LINE-HEIGHT: 14px;	TEXT-DECORATION: none;font-weight: bold;}
+.menu:active { COLOR: #034D72; FONT-SIZE:12px;	LINE-HEIGHT: 14px;	TEXT-DECORATION: none;font-weight: bold;}
+.menu:hover {	COLOR: #FF0000; FONT-SIZE:12px;	LINE-HEIGHT: 14px;	TEXT-DECORATION: none;font-weight: bold;}
+
+.order_menu{color: #666666; FONT-SIZE:12px; LINE-HEIGHT: 14px; TEXT-DECORATION: none; font-weight: bold; cursor:hand}
+.page_menu {COLOR: #333333; LINE-HEIGHT: 14px; TEXT-DECORATION: none; cursor:hand}
+#icredit { width:640px; height:480px;}
+#icredit_pic { position:relative; float:top; width:640px; height:480px; overflow:hidden;}
+#icredit_piclist {position:absolute; table-layout:fixed;}
+#icredit_btn { position:relative; float:top; width:640px; overflow:hidden;}
+
+
+/* 基本FORM控件的样式 */
+TEXTAREA { BORDER: #999999 1px solid; FONT-SIZE: 12px; COLOR: #5A5D5A; TEXT-DECORATION: none;}
+INPUT { BORDER: #999999 1px solid;	FONT-SIZE: 12px; COLOR: #5A5D5A; TEXT-DECORATION: none;}
+SELECT { BORDER: #999999 2px solid; FONT-SIZE: 12px; COLOR: #5A5D5A; TEXT-DECORATION: none;	cursor: hand;}
+
+/* FORM控件的特殊样式 */
+.mycheckbox {	border: 0px solid #ee0000;	cursor: hand;}
+.searchInput{	BORDER: #999999 1px solid;	FONT-SIZE: 10px;	COLOR: #5A5D5A;	TEXT-DECORATION: none;	cursor: hand;
+	background:#fff url(magnifier.gif) no-repeat right;
+}
+
+.mybutton {
+	cursor: hand;
+	background-image: url(button.gif);
+	BORDER: none ;
+	text-align: center;
+	font-weight: bold;
+	width: 78px;
+	HEIGHT: 26px;
+	color: #ffffff;
+	LINE-HEIGHT: normal;
+	font-family: "宋体,sans-serif";
+}
+
+.mysbutton {
+	cursor: hand;
+	background-image: url(sbutton.gif);
+	BORDER: none ;
+	text-align: center;
+	font-weight: bold;
+	width: 48px;
+	HEIGHT: 22px;
+	color: #5A615A;
+	LINE-HEIGHT: normal;
+	font-family: "宋体,sans-serif";
+}
+
+/* 左边菜单 */
+.menu_pers {background-image: url(menu_pers.gif); background-repeat: no-repeat;	background-position: 5px 5px; width: 45px;}
+.menu_news {background-image: url(menu_news.gif); background-repeat: no-repeat;	background-position: 5px 5px; width: 45px;}
+.menu_exer {background-image: url(menu_exer.gif); background-repeat: no-repeat;	background-position: 5px 5px; width: 45px;}
+.menu_test {background-image: url(menu_test.gif); background-repeat: no-repeat;	background-position: 5px 5px; width: 45px;}
+.menu_link {background-image: url(menu_link.gif); background-repeat: no-repeat;	background-position: 5px 5px; width: 45px;}
+.menu_foru {background-image: url(menu_foru.gif); background-repeat: no-repeat;	background-position: 5px 5px; width: 45px;}
+.menu_data {background-image: url(menu_data.gif); background-repeat: no-repeat;	background-position: 5px 5px; width: 45px;}
+.menu_stat {background-image: url(menu_stat.gif); background-repeat: no-repeat;	background-position: 5px 5px; width: 45px;}
+.menu_sett {background-image: url(menu_sett.gif); background-repeat: no-repeat;	background-position: 5px 5px; width: 45px;}
+.l_menu_cn{FONT-FAMILY: "宋体"; font-weight:bold; FONT-SIZE: 14px; color:#FFFF00; filter:glow(color=#000000, strength=1); height:16px}
+.l_menu_en{FONT-FAMILY: "Arial Narrow, Helvetica,Verdana"; FONT-SIZE: 10px; color:#CCCCCC; filter:glow(color=#000000, strength=1);}
+.l_menu_item{padding: 2px 3px 0px 2px; COLOR: #034D72; font-weight: bold; FONT-SIZE: 12px; height:28px}
+/* 登陆页 */
+.user_login{FONT-FAMILY: "宋体";font-weight:bold;FONT-SIZE: 12px;color:#FFFF00;filter:glow(color=#000000, strength=4)}
+.login_intro{FONT-FAMILY: "宋体";font-weight:bold;FONT-SIZE: 16px;color:#333333}
+.bt_icon_logon {FONT-FAMILY: "宋体";	font-weight:bold; FONT-SIZE: 14px; color: #FFFF00; padding:3px 0px 0px 0px; cursor:hand;}
+
+/* 主窗口标题显示格式 */
+.main_title{FONT-SIZE: 14px; text-align:center;	font-weight: bold; color: #034D72; height:30px; width:200px; padding: 5px 0px 0px 0px;}
+
+.main_box_opt{border-left: 2px solid #871d2f; border-top: 0px;border-right: 2px solid #871d2f;border-bottom: 0px;}
+.main_box{border-left: 2px solid #871d2f; border-top: 0px; border-right: 2px solid #871d2f; border-bottom: 2px solid #871d2f; FONT-SIZE: 12pt;}
+.main_Detail{FONT-FAMILY: "宋体";font-weight:bold;FONT-SIZE: 18px;color:#FFFF00;filter:glow(color=#000000, strength=1);height:60px}
+
+.icon_add {width: 65px;height:18px;background-image: url(icon_new.gif);padding:3px 3px 3px 26px;background-repeat: no-repeat;background-position: 5px 1px;}
+.icon_mod {width: 65px;height:18px;background-image: url(icon_modify.gif);padding:3px 3px 3px 26px;background-repeat: no-repeat;background-position: 5px 1px;}
+.icon_modp {width: 54px;height:18px;background-image: url(icon_modify.gif);padding:3px 3px 3px 26px;background-repeat: no-repeat;background-position: 5px 1px;}
+.icon_del {width: 65px;height:18px;background-image: url(icon_del.gif);padding:3px 3px 3px 26px;background-repeat: no-repeat;background-position: 5px 1px;}
+.icon_sea {width: 65px;height:18px;background-image: url(icon_search.gif);padding:3px 3px 3px 26px;background-repeat: no-repeat;background-position: 5px 1px;}
+.icon_fre {width: 65px;height:18px;background-image: url(icon_refresh.gif);padding:3px 3px 3px 26px;background-repeat: no-repeat;background-position: 5px 1px;}
+.icon_bak {width: 65px;height:18px;background-image: url(icon_back.gif);padding:3px 3px 3px 26px;background-repeat: no-repeat;background-position: 5px 1px;}
+
+.table_box {border:1px solid #666666; BORDER-COLLAPSE: collapse;}
+
+.tableMainDetail {
+	border:1px solid #666666;
+	BORDER-COLLAPSE: collapse;
+}
+.table_title{COLOR: #034D72; font-weight: bold; FONT-SIZE: 12px; height: 20px}
+.table_list {FONT-SIZE: 12px; height:20px;}
+
+.info_title{ 
+	padding: 2px 3px 0px 2px;
+	COLOR: #333333; 
+	font-weight: bold; 
+	FONT-SIZE: 12px; 
+}
+.info_list {
+	FONT-SIZE: 12px;
+}
+
+.table_lowlist {
+	FONT-SIZE: 14px;
+	height:30px;
+}
+
+.table_list_more {
+	FONT-SIZE: 12px;
+	height:46px;
+}
+
+.main_box_detail_pages{
+	border-left: 0px solid #871d2f;
+	border-top: 0px solid #871d2f;
+	border-right: 0px solid #871d2f;
+	border-bottom: 2px solid #871d2f;
+	height: 30px;
+}
+.detail_title {
+	FONT-SIZE: 13px;
+	color: #034D72;
+}
+.pages_list {FONT-SIZE: 12px;}
+
+.detail_box{border-left: 2px solid #871d2f;	border-top: 0px;border-right: 2px solid #871d2f;border-bottom: 2px solid #871d2f; FONT-SIZE: 12px;}
+
+.opt_intro {
+	FONT-SIZE: 15px;
+	font-weight: bold;
+	color: #034D72;
+}
+
+.opt_title {
+	FONT-SIZE: 12px;
+	font-weight: bold;
+	color: #034D72;
+}
+
+.opt_survey {
+	FONT-SIZE: 12px;
+}
+
+.opt_text {
+	FONT-SIZE: 14px;
+}
+
+.opt_imtext {
+	FONT-SIZE: 15px;
+	font-weight: bold;
+	color: #FF0000;
+}
+
+.opt_imtitle {
+	FONT-SIZE: 13px;
+	font-weight: bold;
+	color: #999999;
+}
+
+.opt_immsg {
+	FONT-SIZE: 16px;
+	font-weight: bold;
+	color: #CC0000;
+}
+
+.opt_msg {
+	FONT-SIZE: 14px;
+	color: #FF0000;
+}
+
+.detail_opt {
+	FONT-SIZE: 14px;
+	color: #034D72;
+	border-bottom: 2px solid #006699;
+	height: 50px;
+}
+
+.detail_info {
+	FONT-SIZE: 12px;
+}
+
+.detail_info_title {
+	FONT-SIZE: 14px;
+	color: #034D72;
+}
+
+.dateTimePicker{
+	width: 158px;
+	height: 25px;
+	background:#fff url(dateTime.gif) no-repeat right;
+}
+
+.div_title{ padding: 2px 3px 0px 2px;COLOR: #034D72; font-weight: bold; FONT-SIZE: 14px;}
+.div_list {
+	FONT-SIZE: 14px;
+}
+.divFrame {
+	border: 1px solid #666666;
+	BORDER-COLLAPSE: collapse;
+}
+
+.divLine {
+	FONT-SIZE: 14px;
+	background-color: "#FCF6D3";
+	padding: 4px 4px 4px 4px;
+}
+
+.errorMessage {
+	FONT-SIZE: 14px;
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.displayTitle {
+	font-weight: bold;
+	background-color: "#C7EAFB";
+	height:24px
+}

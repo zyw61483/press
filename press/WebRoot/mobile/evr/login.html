@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+<link rel="icon" href="../img/logo.png" type="image/png" size="16x16">
+<link href="../css/evrcg.css" rel="stylesheet" />
+<script src="../js/jquery-2.2.3.min.js"></script>
+<script src="../js/evrcg.js"></script>
+</head>
+<body class="day">
+	<div class="centerdiv">
+		<!-- flexbox布局版本 -->
+		<span class="logo"></span>
+		<div class="parent">
+			<div style="width: 75%">
+				<form method="post" action="#">
+					<div class="row">
+						<input type="text" name="moblile" class="lginput first" placeholder="输入您的手机号"/>
+						<input type="button" class="lgbtn second" value="发送验证码"/>
+					</div>
+					<div class="row">
+						<input type="text" name="code" class="lginput first" placeholder="输入您收到的验证码"/>
+						<label class="second"><input type="checkbox" value="0"/>自动登录</label>
+					</div>
+					<div class="row">
+						<label class="small-font first"><input type="checkbox" class="pull-left" value="0"/>我已阅读并同意</label>
+						<a class="pull-right second" href="#">大开眼界用户协议</a>
+					</div><br>
+					<div class="parent">
+						<input type="submit" class="lgbtn-Big" value="登     录" />
+					</div><br>
+					<div class="parent">
+						<a href="/mobile/evr/bookshelf.html" id="guest">游客模式 》</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		<span class="child"></span>
+		<!-- table布局版本--><!-- 
+		<div id="header">
+			<img src="../img/logo.png" id="logo"/>
+		</div> 
+		<div class="login-box">
+			<form method="post" action="#">
+				<table id="loginTb" cellpadding="0">
+					<tr>
+						<td>
+							<input type="text" name="moblile" class="lginput" placeholder="输入您的手机号"/>
+						</td>
+						<td>
+							<input type="button" class="lgbtn pull-right" value="发送验证码"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" name="code" class="lginput" placeholder="输入您收到的验证码"/>
+						</td>
+						<td>
+							<input type="checkbox" class="pull-right" value="0"/>
+							<label class="small-font pull-right">自动登录</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" class="pull-left" value="0"/>
+							<label class="small-font pull-left">我已阅读并同意</label>
+						</td>
+						<td>
+							<a class="pull-right" href="#">大开眼界用户协议</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="submit" class="lgbtn-Big" value="登     录" />
+						</td>
+					</tr>
+				</table>
+			</form><br/>
+			<a href="#" id="guest">游客模式 》</a>
+		</div> 
+		<div id="footer">
+			<img src="../img/child.png" id="child"/>
+		</div> -->
+	</div>	
+</body>
+</html>

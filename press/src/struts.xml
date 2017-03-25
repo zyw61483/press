@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- Struts运行模式 -->
+	<constant name="struts.devMode" value="false"/>
+	<!-- 将Action方法调用后缀名更改为do -->
+	<constant name="struts.action.extension" value="action,aspx,do,cs" />
+	<!-- 设置全局格式信息 Load custom default resource bundles -->
+	<constant name="struts.custom.i18n.resources" value="globalMessages"></constant>
+	<!-- 设置主题默认样式 Standard UI theme -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 设置Struts转码格式 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 设置Struts上传文件大小 -->
+	<constant name= "struts.multipart.maxSize" value="1048576000" />
+	<!-- 详细设置 -->
+	
+	<package name="evrcg" extends="struts-default">
+		<!-- 全局指向 -->
+		<global-results>
+		    <result name="_alert">/alert.jsp</result>
+			<result name="_confirm">/confirm.jsp</result>
+			<result name="refresh">/refresh.jsp</result>
+			<result name="info_handle">/info_handle.jsp</result>
+		</global-results>
+		<!-- ======================================================================= -->
+		<action name="BaseAction_*" class="org.evr.action.BaseAction" method="{1}">		
+		</action>
+		<action name="StructureAction_*" class="org.evr.action.StructureAction" method="{1}">
+			<result name="search">/search.jsp</result>
+			<result name="structurelist">/admin/structure/structurelist.jsp</result>
+			<result name="structureadd">/admin/structure/structureadd.jsp</result>
+			<result name="structureupdate">/admin/structure/structureupdate.jsp</result>
+		</action>
+		<action name="EactiveAction_*" class="org.evr.action.EactiveAction" method="{1}">		
+			<result name="eactivelist">/admin/eactive/eactivelist.jsp</result>
+			<result name="eactiveadd">/admin/eactive/eactiveadd.jsp</result>
+			<result name="eactiveupdate">/admin/eactive/eactiveupdate.jsp</result>
+		</action>
+		<action name="EbookAction_*" class="org.evr.action.EbookAction" method="{1}">		
+			<result name="ebooklist">/admin/ebook/ebooklist.jsp</result>
+			<result name="ebookinfo">/admin/ebook/ebookinfo.jsp</result>
+			<result name="ebookadd">/admin/ebook/ebookadd.jsp</result>
+			<result name="ebookupdate">/admin/ebook/ebookupdate.jsp</result>
+		</action>
+		<action name="EbooksetsAction_*" class="org.evr.action.EbooksetsAction" method="{1}">		
+			<result name="ebooksetslist">/admin/ebooksets/ebooksetslist.jsp</result>
+			<result name="ebooksetsadd">/admin/ebooksets/ebooksetsadd.jsp</result>
+			<result name="ebooksetsupdate">/admin/ebooksets/ebooksetsupdate.jsp</result>
+		</action>
+		<action name="EbooktypeAction_*" class="org.evr.action.EbooktypeAction" method="{1}">		
+			<result name="ebooktypelist">/admin/ebooktype/ebooktypelist.jsp</result>
+			<result name="ebooktypeadd">/admin/ebooktype/ebooktypeadd.jsp</result>
+			<result name="ebooktypeupdate">/admin/ebooktype/ebooktypeupdate.jsp</result>
+		</action>
+		<action name="EgameAction_*" class="org.evr.action.EgameAction" method="{1}">		
+			<result name="egamelist">/admin/egame/egamelist.jsp</result>
+			<result name="egameinfo">/admin/egame/egameinfo.jsp</result>
+			<result name="egameadd">/admin/egame/egameadd.jsp</result>
+			<result name="egameupdate">/admin/egame/egameupdate.jsp</result>
+		</action>
+		<action name="EhelpAction_*" class="org.evr.action.EhelpAction" method="{1}">		
+			<result name="ehelplist">/admin/ehelp/ehelplist.jsp</result>
+			<result name="ehelpinfo">/admin/ehelp/ehelpinfo.jsp</result>
+			<result name="ehelpadd">/admin/ehelp/ehelpadd.jsp</result>
+			<result name="ehelpupdate">/admin/ehelp/ehelpupdate.jsp</result>
+		</action>
+		<action name="EhelptypeAction_*" class="org.evr.action.EhelptypeAction" method="{1}">		
+			<result name="ehelptypelist">/admin/ehelptype/ehelptypelist.jsp</result>
+			<result name="ehelptypeadd">/admin/ehelptype/ehelptypeadd.jsp</result>
+			<result name="ehelptypeupdate">/admin/ehelptype/ehelptypeupdate.jsp</result>
+		</action>
+		<action name="EnewsAction_*" class="org.evr.action.EnewsAction" method="{1}">		
+			<result name="enewslist">/admin/enews/enewslist.jsp</result>
+			<result name="enewsinfo">/admin/enews/enewsinfo.jsp</result>
+			<result name="enewsadd">/admin/enews/enewsadd.jsp</result>
+			<result name="enewsupdate">/admin/enews/enewsupdate.jsp</result>
+		</action>
+		<action name="EnewstypeAction_*" class="org.evr.action.EnewstypeAction" method="{1}">		
+			<result name="enewstypelist">/admin/enewstype/enewstypelist.jsp</result>
+			<result name="enewstypeadd">/admin/enewstype/enewstypeadd.jsp</result>
+			<result name="enewstypeupdate">/admin/enewstype/enewstypeupdate.jsp</result>
+		</action>
+		<action name="ErollAction_*" class="org.evr.action.ErollAction" method="{1}">		
+			<result name="erolllist">/admin/eroll/erolllist.jsp</result>
+			<result name="erollinfo">/admin/eroll/erollinfo.jsp</result>
+			<result name="erolladd">/admin/eroll/erolladd.jsp</result>
+			<result name="erollupdate">/admin/eroll/erollupdate.jsp</result>
+		</action>
+		<action name="ErolltypeAction_*" class="org.evr.action.ErolltypeAction" method="{1}">		
+			<result name="erolltypelist">/admin/erolltype/erolltypelist.jsp</result>
+			<result name="erolltypeadd">/admin/erolltype/erolltypeadd.jsp</result>
+			<result name="erolltypeupdate">/admin/erolltype/erolltypeupdate.jsp</result>
+		</action>
+		<action name="EsysuserAction_*" class="org.evr.action.EsysuserAction" method="{1}">		
+			<result name="esysuserlist">/admin/esysuser/esysuserlist.jsp</result>
+			<result name="esysuseradd">/admin/esysuser/esysuseradd.jsp</result>
+			<result name="esysusermodpw">/admin/esysuser/esysusermodpw.jsp</result>
+			<result name="esysuserupdate">/admin/esysuser/esysuserupdate.jsp</result>
+			<result name="loginOk">/admin/background.jsp</result>
+			<result name="loginError">/admin/index.jsp</result>
+		</action>
+		<action name="EsyssetAction_*" class="org.evr.action.EsyssetAction" method="{1}">		
+			<result name="esyssetlist">/admin/esysset/esyssetlist.jsp</result>
+			<result name="esyssetadd">/admin/esysset/esyssetadd.jsp</result>
+			<result name="esyssetupdate">/admin/esysset/esyssetupdate.jsp</result>
+		</action>
+		<action name="EuserAction_*" class="org.evr.action.EuserAction" method="{1}">		
+			<result name="euserlist">/admin/euser/euserlist.jsp</result>
+			<result name="euseradd">/admin/euser/euseradd.jsp</result>
+			<result name="euserupdate">/admin/euser/euserupdate.jsp</result>
+		</action>
+	</package>
+</struts>

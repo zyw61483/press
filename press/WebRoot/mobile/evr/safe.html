@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+<link rel="icon" href="../img/logo.png" type="image/png" size="16x16">
+<link href="../css/evrcg.css" rel="stylesheet" />
+<style type="text/css">
+li{
+	 display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+     justify-content: space-between;
+    border-bottom: 1px solid gray;
+    height: 40px;
+    background-color: #FCFCFC;
+	opacity:0.6;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.lgbtn:disabled{
+	background-color: gray;
+}
+</style>
+</head>
+<body class="Bg">
+	<div class="centerdiv">
+		<ul style="list-style-type: none;padding: 0px;margin-top: 10px;">
+			<li>
+				<label><span class="icon icon-mobile"></span>手机号|</label>
+				<label><input type="text" class="lginput" name="mobile"></label>
+				<input type="button" class="lgbtn" value="绑定" disabled>
+			</li>
+			<li>
+				<label><span class="icon icon-email"></span>邮箱号|</label>
+				<label><input type="text" class="lginput" name="email"></label>
+				<input type="button" class="lgbtn" value="绑定" disabled>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

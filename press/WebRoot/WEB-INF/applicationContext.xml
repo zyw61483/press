@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<bean id="logAop" class="org.evr.util.LogAop"></bean>
+
+	<aop:aspectj-autoproxy />
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>/WEB-INF/jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url"><value>jdbc:mysql://localhost:3306/press?useUnicode=true&amp;characterEncoding=UTF-8</value></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<!-- <property name="username" ><value>root</value></property> <property 
+			name="password"><value>dys19830913</value></property> -->
+		<property name="maxActive">
+			<value>12</value>
+		</property>
+		<property name="initialSize">
+			<value>3</value>
+		</property>
+		<property name="maxIdle">
+			<value>3</value>
+		</property>
+		<property name="minIdle">
+			<value>3</value>
+		</property>
+
+		<property name="validationQuery">
+			<value>SELECT 1</value>
+		</property>
+		<property name="testOnBorrow">
+			<value>true</value>
+		</property>
+		<property name="testOnReturn">
+			<value>true</value>
+		</property>
+		<property name="testWhileIdle">
+			<value>true</value>
+		</property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>org/evr/obj/Eactive.hbm.xml</value>
+				<value>org/evr/obj/Ebook.hbm.xml</value>
+				<value>org/evr/obj/Ebooksets.hbm.xml</value>
+				<value>org/evr/obj/Ebooktype.hbm.xml</value>
+				<value>org/evr/obj/Egame.hbm.xml</value>
+				<value>org/evr/obj/Enews.hbm.xml</value>
+				<value>org/evr/obj/Enewstype.hbm.xml</value>
+				<value>org/evr/obj/Ehelp.hbm.xml</value>
+				<value>org/evr/obj/Ehelptype.hbm.xml</value>
+				<value>org/evr/obj/Eroll.hbm.xml</value>
+				<value>org/evr/obj/Erolltype.hbm.xml</value>
+				<value>org/evr/obj/Esysset.hbm.xml</value>
+				<value>org/evr/obj/Esysuser.hbm.xml</value>
+				<value>org/evr/obj/Euser.hbm.xml</value>
+				<value>org/evr/obj/Structure.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!--hibernate事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="serviceMethods" expression="execution(* org.evr.service.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="select*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="update*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="edit*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="save*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="insert*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="Exception" />
+			<tx:method name="delete*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="remove*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="load*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<!-- 注入数据库操作对象、日志处理对象、服务层对象 -->
+	<bean id="springContex" class="org.evr.util.SpringContext" scope="singleton">
+	</bean>
+	<!-- -->
+	<bean id="operation" class="org.evr.util.DBOperation" abstract="false"
+		lazy-init="default" autowire="default" dependency-check="default">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="structureService" name="structureService"
+		class="org.evr.service.StructureService" abstract="false" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<!-- 每增加一个新的实体类的服务类则增加下面类似的说明 -->
+	<bean id="eactiveService" name="eactiveService" class="org.evr.service.EactiveService"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<bean id="ebookService" name="ebookService" class="org.evr.service.EbookService"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<bean id="ebooksetsService" name="ebooksetsService"
+		class="org.evr.service.EbooksetsService" abstract="false" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<bean id="ebooktypeService" name="ebooktypeService"
+		class="org.evr.service.EbooktypeService" abstract="false" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<bean id="egameService" name="egameService" class="org.evr.service.EgameService"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<bean id="enewsService" name="enewsService" class="org.evr.service.EnewsService"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<bean id="enewstypeService" name="enewstypeService"
+		class="org.evr.service.EnewstypeService" abstract="false" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<bean id="ehelpService" name="ehelpService" class="org.evr.service.EhelpService"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<bean id="ehelptypeService" name="ehelptypeService"
+		class="org.evr.service.EhelptypeService" abstract="false" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<bean id="erollService" name="erollService" class="org.evr.service.ErollService"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<bean id="erolltypeService" name="erolltypeService"
+		class="org.evr.service.ErolltypeService" abstract="false" lazy-init="default"
+		autowire="default" dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+
+	<bean id="esyssetService" name="esyssetService" class="org.evr.service.EsyssetService"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+
+
+	<bean id="esysuserService" name="esysuserService" class="org.evr.service.EsysuserService"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+	<bean id="euserService" name="euserService" class="org.evr.service.EuserService"
+		abstract="false" lazy-init="default" autowire="default"
+		dependency-check="default">
+		<property name="operation">
+			<ref local="operation" />
+		</property>
+	</bean>
+</beans>
