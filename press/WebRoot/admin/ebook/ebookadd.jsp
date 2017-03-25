@@ -30,7 +30,7 @@ response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
 			function getSets(){
 				$("#sets").empty();
 				$.ajax({ 
-					url: "EbookAction_getSetsByType.aspx?", 
+					url: "EbookAction_getSetsByType.aspx", 
 					contentType:"application/x-www-form-urlencoded; charset=UTF-8",
 					datatype:"json",
 					data:{type:$("#type").find("option:selected").val()},
